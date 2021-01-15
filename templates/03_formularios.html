@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Formularios</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<style type="text/css">
+	.texto {
+		font-size: 16px;
+		font-weight: bold;
+	}
+</style>
+	
+</head>
+
+<body>
+<div class="container">
+	<div>
+	  <label  class="texto">Nombre:</label>
+	  <!-- Los campos de entrada se guardan en un array llamado 'nombres' -->
+	  <input type="text" name="nombres[]" class="valoresNombres">
+	  <!-- Botón CARGAR del primer mini-formulario -->
+	  <button class="cargar">
+		<span class="texto">Cargar </span>
+	  </button>
+	</div>
+</div>
+<div>
+    <!-- Botón para agregar un nuevos formularios -->
+	<button class="agregar_formulario">
+	  <span class="texto">+ </span>
+	</button>
+</div>
+
+</body>
+<script type="application/javascript">
+    //Formulario a duplicar: LABEL + INPUT + BOTÓN CARGAR + BOTÓN ELIMINAR
+	var htmlToDuplicate = 
+	'    <div><label class="texto">Nombre:</label>' +
+	'      <input type="text" name="nombres[] class="valoresNombres">' +
+	'      <button class="cargar">' +
+	'        <span class="texto">Cargar </span>' +
+	'      </button>' +
+	'      <button class="eliminar">' +
+	'        <span class="texto">Eliminar </span>' +
+	'      </button>' +
+	'    </div>';
+	//Para el botón CARGAR ver la función 'accionCargar(valor)'. Esta función
+	//ya recibe el valor del campo INPUT asociado en su argumento 'valor'
+	function accionCargar(valor){
+	  alert('Cargando....\nNombre: ' + valor);
+	}
+	
+    //El '$(document).ready(...)' se ejecuta una ver que el DOM ha sido cargado
+	$(document).ready(function() {
+		var wrapper = $(".container");
+		var add_button = $(".agregar_formulario");
+
+		//Función callback del botón que agrega nuevos mini-formularios
+		$(add_button).click(function(e) {
+		  e.preventDefault();
+		  //agregar el nuevo fomulario
+		  $(wrapper).append(htmlToDuplicate);
+		  //poner el foco en el último elemento
+		  $(wrapper).last().find("input").focus();
+		});
+
+		//Función callback del botón ELIMINAR -> 1 por cada mini-formulario (EXCEPTO EL PRIMERO)
+		$(wrapper).on("click", ".eliminar", function(e) {
+			e.preventDefault();
+			$(this).parent('div').remove();
+		});
+		//Función callback del botón CARGAR -> 1 por cada mini-formulario
+		$(wrapper).on("click", ".cargar", function(e) {
+			e.preventDefault();
+			accionCargar($(this).siblings('input').val());
+		});
+	});
+
+</script>	
+
+
+</html>

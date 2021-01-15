@@ -1,0 +1,78 @@
+<html>
+    <head>
+        <style>
+            img{
+                border-color: black !important;
+                border-style: solid !important;
+                border-width: 3px !important;
+            }
+            </style>
+<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+        <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <title>{%block title%} {%endblock%}</title>
+    </head>
+    <body>
+        <nav class="navbar navbar-light bg-light">
+            <span class="navbar-brand mb-0 h1">Real Time Face Recognition</span>
+          </nav>
+
+    <div class="container">
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-warning alert-dismissible" role="alert">
+                    <span>{{ message }}</span>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+    </div>
+    <div class="container" style="margin-top: 80px">
+     
+
+        <div class="row">
+            <div class="col-xs-12 col-md-12">
+        {%block main%}
+        <img class="img-rounded" src="static/img/Face_Recon_ex.jpg" width="50%"></img>
+        {%endblock%}
+        <div class="col-xs-12 col-md-6">
+            <form action="/" method="post" enctype=multipart/form-data>
+                <div class="form-group">
+                    <label>User 1 </label>
+                    <input class="form-control" type="text" id="User1" name="User1" value="{{request.form['User1']}}"></input>
+                    <button  class="btn btn-default" type="submit" name="Create_Dataset_User1" value="Create_Dataset_User1" class="btn btn-primary">Create Dataset</button>
+                </div>
+                <div class="form-group">
+                    <label>User 2 </label>
+                    <input class="form-control" type="text" id="User2" name="User2"  value="{{request.form['User2']}}"></input>
+                    <button  class="btn btn-default" type="submit" name="Create_Dataset_User2" value="Create_Dataset_User2" class="btn btn-primary">Create Dataset</button>
+                </div>
+                
+
+                <div class="form-group">
+                    <button  class="btn btn-primary" type="submit" name="Run" value="Run" class="btn btn-primary">RUN</button>
+                    <button  class="btn btn-default" type="submit" name="Erase_Data" value="Erase_Data" class="btn btn-primary">Erase Data</button>
+                </div>
+                
+            </form> 
+    </div>
+
+        </div>
+        </div>
+        <div class="row">
+            <h4>Instructions</h4>
+            <ul>
+            <li>1. Click on the button "Create Dataset" in order to create a dataset of your face , this should be an individual process , make sure you look at the camera and slightly move your head to ensure better recognition </li>
+            <li>2. Repeat process one for each person who wants to get recognize</li>
+            <li>3. Click on "Train"</li>
+            <li>4. Click on the "Run!" and enjoy</li>
+        
+        </ul>
+        </div>
+    </div>
+    </body>
+</html>
