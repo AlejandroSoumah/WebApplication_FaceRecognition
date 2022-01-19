@@ -1,3 +1,4 @@
+
 # Facial Recognition Web Application using Flask
 
 [![Watch the video](https://github.com/AlejandroSoumah/WebApplication_FaceRecognition/blob/main/FaceRecon.png)](https://youtu.be/BaHZWi6Kbcg)
