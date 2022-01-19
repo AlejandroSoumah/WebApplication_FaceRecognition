@@ -1,7 +1,6 @@
 
 # Facial Recognition Web Application using Flask
 ![Python](https://img.shields.io/badge/-Python-f7c437?style=flat-square&logo=python&logoColor=black)
-![Flask](https://img.shields.io/badge/-Python-f7c437?style=flat-square&logo=python&logoColor=black)
 
 [![Watch the video](https://github.com/AlejandroSoumah/WebApplication_FaceRecognition/blob/main/FaceRecon.png)](https://youtu.be/BaHZWi6Kbcg)
 
