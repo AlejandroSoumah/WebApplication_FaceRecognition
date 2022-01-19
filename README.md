@@ -4,9 +4,9 @@
 
 This is a real-time facial recognition web application based on OpenCV. It is an execution of an OpenCV based facial recognition, it uses graphic interface using a website. It uses Flask (micro web framework written in Python) in order to execute the OpenCV facial recognition model, it works by using a webcam connected to your computer and getting the input from there. In order to be able to have your face recgnized a "database" of it needs to be created. It is created as seen in the video. It uses OpenCV real-time facial recognition and joins it with Flask to create a facial recognition web application that works for two users simultaneously.
 ## Table of contents
-* [General info](#1.0 Installation:)
-* [Technologies](#2.0 Execution)
-* [Setup](#3.0 Setup)
+* [General info](#Installation:)
+* [Technologies](#Execution)
+* [Setup](#Setup)
 
 
 ### 1.0 Installation:
